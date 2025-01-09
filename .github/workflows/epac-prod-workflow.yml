@@ -28,7 +28,7 @@ jobs:
   deployPolicy:
     name: Deploy prod Policy Changes
     needs: plan
-    if: needs.plan.outputs.deployPolicyChanges == 'yes' && startsWith(github.ref, 'refs/heads/releases-prod/')
+    if: needs.plan.outputs.deployPolicyChanges == 'yes' && startsWith(github.ref, 'refs/heads/main/')
     uses: ./.github/workflows/deploy-policy.yml
     with:
       pacEnvironmentSelector: HISL
