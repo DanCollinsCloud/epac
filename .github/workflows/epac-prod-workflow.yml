@@ -4,7 +4,7 @@ name: EPAC PROD Workflow
 on:
   push:
     branches:
-      - releases-prod/**
+      - main
 
 env:
   PAC_OUTPUT_FOLDER: ./Output
