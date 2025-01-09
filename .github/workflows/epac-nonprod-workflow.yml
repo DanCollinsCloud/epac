@@ -4,7 +4,7 @@ name: EPAC NONPROD Workflow
 on:
   push:
     branches:
-      - main
+      - maintest
 
 env:
   PAC_OUTPUT_FOLDER: ./Output
