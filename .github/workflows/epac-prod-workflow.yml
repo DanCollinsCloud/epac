@@ -19,7 +19,7 @@ jobs:
     name: Plan prod
     uses: ./.github/workflows/plan.yml
     with:
-      pacEnvironmentSelector: prod
+      pacEnvironmentSelector: HISL
       planGitHubEnvironment: PROD-PLAN
       PAC_OUTPUT_FOLDER: ./Output
       PAC_DEFINITIONS_FOLDER: ./Definitions
@@ -31,7 +31,7 @@ jobs:
     if: needs.plan.outputs.deployPolicyChanges == 'yes' && startsWith(github.ref, 'refs/heads/releases-prod/')
     uses: ./.github/workflows/deploy-policy.yml
     with:
-      pacEnvironmentSelector: prod
+      pacEnvironmentSelector: HISL
       planGitHubEnvironment: PROD-DEPLOY-POLICY
       PAC_INPUT_FOLDER: ./Output
       PAC_DEFINITIONS_FOLDER: ./Definitions
@@ -43,7 +43,7 @@ jobs:
     if: needs.plan.outputs.deployRoleChanges == 'yes' && startsWith(github.ref, 'refs/heads/releases')
     uses: ./.github/workflows/deploy-roles.yml
     with:
-      pacEnvironmentSelector: prod
+      pacEnvironmentSelector: HISL
       planGitHubEnvironment: PROD-DEPLOY-ROLES
       PAC_INPUT_FOLDER: ./Output
       PAC_DEFINITIONS_FOLDER: ./Definitions
